@@ -43,4 +43,12 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+    <Button
+        android:id="@+id/bScan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Scanner"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintStart_toStartOf="@+id/button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

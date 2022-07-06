@@ -1,5 +1,6 @@
 package com.splicer.qrcodegenerator
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -11,6 +12,7 @@ import com.google.zxing.WriterException
 class MainActivity : AppCompatActivity() {
     var im: ImageView? = null
     var bGenerate: Button? = null
+    var bScanner: Button? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +20,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         im = findViewById(R.id.imageView)
         bGenerate = findViewById(R.id.button)
+        bScanner = findViewById(R.id.bScan)
+        bScanner?.setOnClickListener {
+            startActivity(Intent(this, ScannerActivity:: class.java))
+        }
         bGenerate?.setOnClickListener {
             generateQrCode("Поставь лайк если понравилось видео!!")
         }
@@ -26,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     private fun generateQrCode(text: String){
         val qrGenerator = QRGEncoder(text, null, QRGContents.Type.TEXT, 500)
         try {
-            val bMap = qrGenerator.encodeAsBitmap()
+            val bMap = qrGenerator.bitmap
             im?.setImageBitmap(bMap)
         } catch (e: WriterException){
 
