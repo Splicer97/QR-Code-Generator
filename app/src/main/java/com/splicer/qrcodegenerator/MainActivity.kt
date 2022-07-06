@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     var im: ImageView? = null
     var bGenerate: Button? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
